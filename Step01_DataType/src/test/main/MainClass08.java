@@ -16,5 +16,6 @@ public class MainClass08 {
 		String str = "abcde12345";
 		int result = str.length();
 		char result2 = str.charAt(5);
+		
 	}
 }
