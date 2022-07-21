@@ -1,0 +1,7 @@
+package test.main;
+
+public class MyClass {
+	public static void main(String[] args) throws Exception { // java에서는 함수가 아니라 메소드라고 한다!(javascript의 function과 같음)
+		System.out.println("Hello World!");
+	}
+}

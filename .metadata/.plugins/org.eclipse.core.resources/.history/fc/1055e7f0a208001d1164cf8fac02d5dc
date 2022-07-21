@@ -1,0 +1,7 @@
+package test.main; // 패키지명과 패키지 파일명은 동일해야함
+
+public class MainClass { // 클래스명과 클래스 파일명은 동일해야함
+	public static void main(String[] args) throws Exception {
+		System.out.println("main 메소드가 시작되었습니다");
+	}
+}

@@ -1,0 +1,17 @@
+package test.main; // 패키지명과 패키지 파일명은 동일해야함
+//java는 정적인 언어이고 javascript는 동적인 언어이다.
+public class MainClass { // 클래스명과 클래스 파일명은 동일해야함
+	public static void main(String[] args) throws Exception {
+		System.out.println("main 메소드가 시작되었습니다");
+		// let num1 = 10;
+		int num1 = 10; //int는 integer의 약자(정수타입), num1은 식별자임(identifier)
+		// let num2 = 10.1;
+		double num2 = 10.1;//double은 실수타임
+		// let isRun = true;
+		boolean isRun = true;
+		// let myName="김구라";
+		String myName="김구라";
+		
+		System.out.println(num1+num2+isRun+myName);
+	}
+}
