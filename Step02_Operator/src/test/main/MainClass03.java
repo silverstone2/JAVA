@@ -17,6 +17,9 @@ public class MainClass03 {
       // String type 변수 name 에 null 대입하기 
       String name=null;
       
+      //int size = name.length();
+      //문법상으로는 맞지만 참조값이 없기 때문에 에러 발생
+      
       // null 인지 아닌지 비교가 가능하다 (즉 java 에서 null 값은 비교가 가능)
       boolean result7 = name == null; //true
       boolean result8 = name != null; //false
