@@ -22,7 +22,7 @@
 
 * java에는 static, stack, heap 세가지 영역이 존재한다.
   - static 영역 : 해당 영역 위에 클래스가 생성된다. (클래스 통째로 생성이 가능하며 field와 method도 추가 가능)
-  - stack 영역 : 지역변수가 생성된다.(field는 heap 영역 안에 만들어지지만 지역변수는 메모리 내 stack 영역에 생성된다)
+  - stack 영역 : 지역변수가 생성된다.(field는 heap 영역 안에 만들어지지만 지역변수는 메모리 내 stack 영역에 생성된다)<
         -> [참고] 지역변수는 method가 실행 중에 생성되었다가 해당 method가 종료(return)되면 사라진다.
   - heap 영역 : 객체가 만들어진다.
 
