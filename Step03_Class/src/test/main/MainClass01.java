@@ -19,6 +19,7 @@ public class MainClass01 {
 		// heap 영역에서의 참조값이 들어옴(함수 아님) -> 이 참조값을 지역변수에 넣어야함 이 때 type은 클래스명이 type이 될 수 있다!
 		
 		// Calculator 객체의 exec() 메소드 호출하기
+		// 만일 int타임으로 exec()를 선언한다면 에러 발생 (발생 이유 : int로 반환시켜줄 코드가 없기 때문
 		cal.exec();
 		cal.exec();
 		cal.exec();
