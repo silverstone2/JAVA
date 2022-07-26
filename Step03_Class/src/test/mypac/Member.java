@@ -12,4 +12,10 @@ public class Member {
 	public int num;
 	public String name;
 	public String addr;
+	
+	// 메소드(메소드에서 필드에 있는 값들을 참조할 수 있다)
+	public void showInfo() {
+		// this는 객체 자신의 참조값을 가리키는 예약어(클래스 설계시점에 this는 뭘 가르키는지는 모른다)
+		System.out.println("번호 : "+this.num+" 이름 : "+this.name+" 주소 : "+this.addr);
+	}
 }
