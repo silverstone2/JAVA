@@ -35,4 +35,28 @@ public class MyObject {
 	public Car getCar() {
 		return new Car();
 	}
+	
+	// int type 을 메소드의 인자로 전달 받는 메소드
+	public void setNum(int num) { // 매개변수의 이름은 예측이 가능하도록 적는게 가장 좋음
+		System.out.println("num : "+num);
+	}
+	
+	// String type 을 메소드의 인자로 전달 받는 메소드
+	public void setName(String name) {
+		System.out.println("name : "+name);
+	}
+	
+	// Radio type 을 메소드의 인자로 전달 받는 메소드
+	public void useRadio(Radio r) {
+		r.listenMusic();
+	}
+	
+	// Gun type 과 Arrow type 을 메소드의 인자로 전달 받는 메소드
+	public void attack(Gun g, Arrow a) {
+		System.out.println("총과 활로 공격을 해요");
+	}
+	
+	public void puzzling(Puzzle p) {
+		System.out.println("퍼즐을 맞춰요");
+	}
 }
