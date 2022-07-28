@@ -16,10 +16,6 @@ public class Member {
 		this.name = name;
 		this.addr = addr;
 	}
-	
-	public void Member2(int num, String name, String addr) {
-		this.num = num;
-		this.name = name;
-		this.addr = addr;
-	}
+
+	// 위의 상황은 생성자가 여러 개 정의(다중정의) 되어 있음 -> 생성자가 overloading 되어 있다고 함.
 }
