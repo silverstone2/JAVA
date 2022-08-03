@@ -5,7 +5,7 @@ package test.mypac;
  * 
  *  실행 중에 발생하는 예외를 발생시키고 싶으면 RuntimeException을 상속 받아서 만들면 된다.
  */
-public class SleepyException extends RuntimeException {
+public class SleepyException extends RuntimeException { // 그냥 Exception을 적어버리면 unhandled exception으로 인식함
 	// 생성자
 	public SleepyException(String msg) {
 		// 예외 메세지를 생성자의 인자로 전달 받아서 부모 생성자에 전달한다.

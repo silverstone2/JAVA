@@ -1,9 +1,17 @@
 package frame01;
 
+import java.awt.Component;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class MyFrame extends JFrame {
+	
+	MyFrame a = this;
+	JFrame b = this;
+	Object c = this;
+	Component d = this;
+	
 	
 	// 생성자
 	public MyFrame(String title) {
