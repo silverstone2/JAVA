@@ -33,6 +33,10 @@ public class MyFrame extends JFrame {
 				 * 	.showMessageDialog(프레임의 참조값, 띄울 메세지)
 				 */
 				JOptionPane.showMessageDialog(MyFrame.this, "전송합니다!");
+				// MyFrame.this -> 저 클래스로 생성된(바깥쪽으로 싸고 있는 클래스로 생성된) 참조값
+				// 만약 그냥 this라고 쓰게 되면 ActionListener를 지칭하게 되는 것임
+				// 자바는 똑같은 메소드가 여러개 종류가 있지만 용도별로 다 다르다.(생성자와 마찬가지로 다중 정의 되어 있을 수도 있다)
+				//static method는 클래스에 . 찍어서 사용 !
 			}
 		};
 		sendBtn.addActionListener(listener);
