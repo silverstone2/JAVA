@@ -26,6 +26,7 @@ public class Quiz extends JFrame implements ActionListener {
 	
 	//생성자
 	   public Quiz() {
+
 		  // 레이아웃 설정
 	      setLayout(new BorderLayout());
 	      JPanel panel=new JPanel();
@@ -44,7 +45,7 @@ public class Quiz extends JFrame implements ActionListener {
 	   }
 	   
 	   public static void main(String[] args) {
-	      Quiz frame=new Quiz();
+	      JFrame frame = new Quiz();
 	      frame.setTitle("Quiz"+ "");
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      frame.setBounds(100, 100, 500, 500);
@@ -63,9 +64,72 @@ public class Quiz extends JFrame implements ActionListener {
 						System.out.printf("%d x %d = %d", num, i+1, (num*(i+1)));
 						System.out.println("");
 					}
+					Thread.sleep(1000);
 				  } catch (NumberFormatException nfe) {
 						JOptionPane.showMessageDialog(this, "숫자 형식으로 입력하세요");
-				  }
+				  } catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			   }).start();
 	   }
 }
+
+/*
+ * 선생님 코드~
+ * package test.main;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Frame07 extends JFrame implements ActionListener{
+   JTextField tf;
+   //생성자 
+   public Frame07(String title) {
+      super(title);
+      //레이아웃 설정
+      setLayout(new FlowLayout());
+      
+      this.tf=new JTextField(10);
+      JButton printBtn=new JButton("출력하기");
+      
+      add(tf);
+      add(printBtn);
+      
+      //버튼에 리스너 등록
+      printBtn.addActionListener(this);
+   }
+   
+   @Override
+   public void actionPerformed(ActionEvent e) {
+      //입력한 문자열을 읽어온다.
+      String inputNum=tf.getText();
+      //입력한 숫자형태의 문자열을 실제 정수로 바꾸기
+      int num=Integer.parseInt(inputNum);
+      for(int i=0; i<9; i++) {
+         int result=num*(i+1);
+         System.out.println(num+" x "+(i+1)+" = "+result);
+      }
+   }
+   
+   public static void main(String[] args) {
+      JFrame frame=new Frame07("구구단 예제");
+      //프레임을 닫으면 자동으로 프로세스가 종료 되도록 한다.
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setBounds(100, 100, 500, 500);
+      frame.setVisible(true);
+   }
+}
+*/
+
+
+
+
+
+
+
+
