@@ -3,9 +3,8 @@ package test.main;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
-public class MainClass01 {
+public class MainClass05 {
 	public static void main(String[] args) {
 		Connection conn = null;
 	      
@@ -19,25 +18,20 @@ public class MainClass01 {
 	         e.printStackTrace();
 	      }
 	      
-	      // SELECT 작업
 	      PreparedStatement pstmt = null;
-	      ResultSet rs = null;
+	      
+	      int num = 4;
+	      
 	      try {
-	    	  // sql 실행문
-	    	  String sql = "SELECT num, name, addr, phone FROM friend"
-	    			  + " ORDER BY num ASC";
+	    	  String sql = "DELETE friend"
+	    			  + " WHERE num=?";
 	    	  
 	    	  pstmt = conn.prepareStatement(sql);
-	    	  rs = pstmt.executeQuery();
 	    	  
-	    	  while(rs.next()) {
-	    		  int num = rs.getInt("num");
-	    		  String name = rs.getString("name");
-	    		  String addr = rs.getString("addr");
-	    		  String phone = rs.getString("phone");
-	    		  System.out.println("번호 : "+num+" | 이름 : "+name+" | 주소 : "+addr+" | 전화번호 : "+phone);
-	    	  }
+	    	  pstmt.setInt(1, num);
 	    	  
+	    	  pstmt.executeUpdate();
+	    	  System.out.println("회원정보가 삭제되었습니다.");
 	      } catch (Exception e) {
 			e.printStackTrace();
 		}

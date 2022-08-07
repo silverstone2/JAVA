@@ -21,3 +21,5 @@ public class MainClass10 {
 		String addr = (String)map.get("addr");
 	}
 }
+
+
