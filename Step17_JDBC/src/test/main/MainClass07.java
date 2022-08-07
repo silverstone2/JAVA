@@ -28,9 +28,10 @@ public class MainClass07 {
 	    PreparedStatement pstmt=null;
 	      
 	    try {
-	       String sql="INSERT INTO member(num,name,addr)"
+	    	conn=new DBConnect().getConn();
+	    	String sql="INSERT INTO member(num,name,addr)"
 	             + " VALUES(member_seq.NEXTVAL,?,?)";
-	       	 conn=new DBConnect().getConn();
+	    	
 	         pstmt=conn.prepareStatement(sql);
 	         pstmt.setString(1, dto.getName());
 	         pstmt.setString(2, dto.getAddr());
