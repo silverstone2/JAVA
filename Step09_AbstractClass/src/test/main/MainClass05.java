@@ -19,7 +19,8 @@ public class MainClass05 {
 			
 			@Override
 			public void attack() {
-				System.out.println("공중 공격을 해요!")
+				System.out.println("공중 공격을 해요!");
+				System.out.println("공중 공격을 해요!");
 			}
 		});
 		
