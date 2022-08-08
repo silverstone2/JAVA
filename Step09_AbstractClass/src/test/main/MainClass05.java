@@ -23,10 +23,7 @@ public class MainClass05 {
 				System.out.println("공중 공격을 해요!");
 			}
 		});
-		
-		
 	}
-	
 	public static void useWeapon(Weapon w) {
 		w.prepare();
 		w.attack();
