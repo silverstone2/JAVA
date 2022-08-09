@@ -1,15 +1,23 @@
 package test.frame;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import test.dao.MemberDao;
+import test.dto.MemberDto;
 /*
  *  //1. 선택된 row  인덱스를 읽어온다.
    int selectedIndex=table.getSelectedRow();
@@ -28,7 +36,7 @@ import javax.swing.table.DefaultTableModel;
    }
  * 
  */
-public class TestFrame extends JFrame{
+public class TestFrame extends JFrame implements ActionListener{
    //필드
    JTextField inputName, inputAddr;
    DefaultTableModel model;
@@ -44,12 +52,20 @@ public class TestFrame extends JFrame{
       JLabel label2=new JLabel("주소");
       inputAddr=new JTextField(10);
       
+      // 저장 버튼 추가
       JButton saveBtn=new JButton("저장");
       saveBtn.setActionCommand("save");
+      saveBtn.addActionListener(this);
       
       //삭제 버튼 추가
       JButton deleteBtn=new JButton("삭제");
       deleteBtn.setActionCommand("delete");
+      deleteBtn.addActionListener(this);
+      
+      //수정 버튼 추가
+      JButton updateBtn=new JButton("수정");
+      deleteBtn.setActionCommand("update");
+      updateBtn.addActionListener(this);
       
       JPanel panel=new JPanel();
       panel.add(label1);
@@ -58,6 +74,7 @@ public class TestFrame extends JFrame{
       panel.add(inputAddr);
       panel.add(saveBtn);
       panel.add(deleteBtn);
+      panel.add(updateBtn);
       
       add(panel, BorderLayout.NORTH);
       
@@ -91,6 +108,13 @@ public class TestFrame extends JFrame{
       Object[] row3= {3, "원숭이", "상도동"};
       model.addRow(row3);
       
+      MemberDao dao = new MemberDao();
+	   List<MemberDto> list = dao.getList();
+	   for(MemberDto tmp : list) {
+		   Object[] row = {tmp.getNum(), tmp.getName(), tmp.getAddr()};
+		   model.addRow(row);
+	   }
+	
    }
    
    
@@ -101,12 +125,51 @@ public class TestFrame extends JFrame{
       f.setBounds(100, 100, 800, 500);
       f.setVisible(true);
    }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String command = e.getActionCommand();
+		MemberDao dao = new MemberDao();
+		MemberDto dto = new MemberDto();
+		Boolean isSuccess = false;
+		
+		try {
+			if(command.equals("save")) {
+				dto.setName(inputName.getText());
+				dto.setAddr(inputAddr.getText());
+				isSuccess = dao.insert(dto);
+				if(isSuccess) {
+					JOptionPane.showMessageDialog(this, "회원정보를 저장했습니다.");
+				} else {
+					JOptionPane.showMessageDialog(this, "저장 실패!");
+				}
+			} else if(command.equals("delete")) {
+				int selectedIndex = table.getSelectedRow();
+				int num = (int) model.getValueAt(selectedIndex, 0);
+				dto.setNum(num);
+				dto.setName(inputName.getText());
+				dto.setAddr(inputAddr.getText());
+				isSuccess = dao.delete(num);
+				if(isSuccess) {
+					JOptionPane.showMessageDialog(this, "회원정보를 삭제했습니다.");
+				} else {
+					JOptionPane.showMessageDialog(this, "삭제 실패!");
+				}
+			} else if(command.equals("update")) {
+				int selectedIndex = table.getSelectedRow();
+				int num = (int) model.getValueAt(selectedIndex, 0);
+				dto.setNum(num);
+				dto.setName(inputName.getText());
+				dto.setAddr(inputAddr.getText());
+				isSuccess = dao.update(dto);
+				if(isSuccess) {
+					JOptionPane.showMessageDialog(this, "회원정보를 수정했습니다.");
+				} else {
+					JOptionPane.showMessageDialog(this, "수정 실패!");
+				}
+			}
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+	}
 }
-
-
-
-
-
-
-
-
